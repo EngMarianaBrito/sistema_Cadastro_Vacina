@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.deletion import CASCADE
 from django.db.models.fields import BooleanField
 from django.db.models.fields.related import OneToOneField
 
@@ -83,6 +84,7 @@ class Estado(models.Model):
 
 class Cidade (models.Model):
     nome = models.CharField(max_length=20)
+    estado =  models.ForeignKey(Estado,on_delete=CASCADE)
 
     def __str__(self):
         return self.nome
@@ -94,3 +96,5 @@ class Locais (models.Model):
 
     def __str__(self):
         return self.locais
+
+#class 1ocal_de_Vacinacao()
